@@ -73,7 +73,6 @@ class TestSavingGoals:
             .get_attribute('class')
         assert real_value == expected_value, f"Expected {expected_value}, but got {real_value}"
 
-
         time.sleep(2)
 
     @pytest.mark.smoke
@@ -105,8 +104,6 @@ class TestSavingGoals:
         expected_value = '$625.00'
 
         assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
-
-        time.sleep(2)
 
         time.sleep(2)
 
