@@ -8,4 +8,3 @@ class SavingGoalsPage:
     #date_input_left_button_locator =
     #date_input_right_button_locator =
     #monthly_amount_locator =
-    #confirm_button_locator = //button[.='Confirm']
