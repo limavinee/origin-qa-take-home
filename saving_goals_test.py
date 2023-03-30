@@ -22,7 +22,7 @@ class TestSavingGoals:
         money_input_locator = self.driver.find_element(By.XPATH, "//input['1,000']")
         money_input_locator.send_keys(250000)
 
-        displayed_value = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[1]/div/div/input')\
+        displayed_value = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[1]/div/div/input') \
             .get_attribute('value')
         expected_value = '2,500.00'
 
@@ -64,7 +64,7 @@ class TestSavingGoals:
             reach_goal_by_locator.send_keys(Keys.LEFT)
 
         expected_value = 'sc-furwcr ftJiaC disabled'
-        real_value = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div/div/svg[1]')\
+        real_value = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div/div/svg[1]') \
             .get_attribute('class')
         assert real_value == expected_value, f"Expected {expected_value}, but got {real_value}"
 
@@ -78,21 +78,21 @@ class TestSavingGoals:
         reach_goal_by_locator.click()
 
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        displayed_value = self.driver.find_element \
+        displayed_value = self.driver.find_element\
             (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
         expected_value = '$1,250.00'
 
         assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
 
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        displayed_value = self.driver.find_element \
+        displayed_value = self.driver.find_element\
             (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
         expected_value = '$833.33'
 
         assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
 
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        displayed_value = self.driver.find_element \
+        displayed_value = self.driver.find_element\
             (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
         expected_value = '$625.00'
 
@@ -104,7 +104,7 @@ class TestSavingGoals:
         money_input_locator = self.driver.find_element(By.XPATH, "//input['1,000']")
         money_input_locator.send_keys(250075)
 
-        reach_goal_by_locator = self.driver.find_element(By.XPATH,'//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div')
+        reach_goal_by_locator = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div')
         reach_goal_by_locator.click()
 
         reach_goal_by_locator.send_keys(Keys.RIGHT)

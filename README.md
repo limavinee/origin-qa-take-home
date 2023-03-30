@@ -19,17 +19,18 @@ Saving Goals functionality of Origin´s website, using **Python**, **Selenium** 
 - Navigate to the cloned directory using command prompt
 - Run the following command to execute all tests:
 
-`pytest test_saving_goals.py`
+`pytest saving_goals_test.py`
 
 - If you want to execute specific tests, use the following command:
 
-`pytest test_saving_goals.py::test_tc_0001`
+`pytest saving_goals_test.py::test_tc_0001`
 
 The above command will execute the test_tc_0001 test function. 
 Replace the function name to execute any specific test.
+
 If you want to skip a test, use the following command:
 
-`pytest test_saving_goals.py -m "not tc_0007"`
+`pytest saving_goals_test.py -m "not tc_0007"`
 
 The above command will skip the test_tc_0007 test function. 
 Replace the function name to skip any specific test.
