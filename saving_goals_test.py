@@ -34,8 +34,8 @@ class TestSavingGoals:
     @pytest.mark.smoke
     @pytest.mark.saving_goals
     def test_tc_0007(self):
-        left_arrow_locator = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div/div/svg[1]')
-        right_arrow_locator = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div/div/svg[2]')
+        left_arrow_locator = self.driver.find_element(By.CSS_SELECTOR, 'sc-furwcr ftJiaC')
+        right_arrow_locator = self.driver.find_element(By.CSS_SELECTOR, 'sc-furwcr gfjHRP')
 
         for i in range(5):
             right_arrow_locator.click()
@@ -55,7 +55,7 @@ class TestSavingGoals:
         for i in range(5):
             reach_goal_by_locator.send_keys(Keys.LEFT)
 
-        time.sleep(2)
+        time.sleep(1)
 
     @pytest.mark.smoke
     @pytest.mark.saving_goals
@@ -68,7 +68,11 @@ class TestSavingGoals:
         for i in range(10):
             reach_goal_by_locator.send_keys(Keys.LEFT)
 
-        #assert button is disabled
+        expected_value = 'sc-furwcr ftJiaC disabled'
+        real_value = self.driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div/div/svg[1]')\
+            .get_attribute('class')
+        assert real_value == expected_value, f"Expected {expected_value}, but got {real_value}"
+
 
         time.sleep(2)
 
@@ -82,11 +86,27 @@ class TestSavingGoals:
         reach_goal_by_locator.click()
 
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        # assert monthly amount is 1,250.00
+        displayed_value = self.driver.find_element \
+            (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
+        expected_value = '$1,250.00'
+
+        assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
+
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        # assert monthly amount is 833.33
+        displayed_value = self.driver.find_element \
+            (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
+        expected_value = '$833.33'
+
+        assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
+
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        # assert monthly amount is 625.00
+        displayed_value = self.driver.find_element \
+            (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
+        expected_value = '$625.00'
+
+        assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
+
+        time.sleep(2)
 
         time.sleep(2)
 
@@ -100,10 +120,24 @@ class TestSavingGoals:
         reach_goal_by_locator.click()
 
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        # assert monthly amount is 1,250.38
+        displayed_value = self.driver.find_element\
+            (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
+        expected_value = '$1,250.38'
+
+        assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
+
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        # assert monthly amount is 833.58
+        displayed_value = self.driver.find_element\
+            (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
+        expected_value = '$833.58'
+
+        assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
+
         reach_goal_by_locator.send_keys(Keys.RIGHT)
-        # assert monthly amount is 625.19
+        displayed_value = self.driver.find_element\
+            (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/div/div[1]/div/div[2]/p').text
+        expected_value = '$625.19'
+
+        assert displayed_value == expected_value, f"Expected {expected_value}, but got {displayed_value}"
 
         time.sleep(2)
