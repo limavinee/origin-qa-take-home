@@ -32,8 +32,8 @@ class TestSavingGoals:
     @pytest.mark.smoke
     @pytest.mark.saving_goals
     def test_tc_0007(self):
-        left_arrow_locator = self.driver.find_element(By.CSS_SELECTOR, 'sc-furwcr ftJiaC')
-        right_arrow_locator = self.driver.find_element(By.CSS_SELECTOR, 'sc-furwcr gfjHRP')
+        left_arrow_locator = self.driver.find_element(By.CLASS_NAME, 'sc-furwcr ftJiaC')
+        right_arrow_locator = self.driver.find_element(By.CLASS_NAME, 'sc-furwcr gfjHRP')
 
         for i in range(5):
             right_arrow_locator.click()
